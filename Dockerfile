@@ -1,4 +1,4 @@
-FROM golang:1.24.3-alpine3.21 AS base
+FROM golang:1.24-bullseye AS base
 
 WORKDIR /app
 
@@ -7,7 +7,8 @@ RUN go mod download
 
 COPY . .
 
-RUN apk add --no-cache bash fd-find curl cargo ripgrep ffmpeg
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  bash fd-find curl cargo ripgrep ffmpeg
 
 # Install Node.js
 ENV NVM_DIR /root/.nvm
