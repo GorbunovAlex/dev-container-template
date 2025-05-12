@@ -31,6 +31,7 @@ RUN cd /root/TMP && git clone https://github.com/neovim/neovim --depth 1 -b v0.1
 RUN cd /root/TMP/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && make install
 RUN rm -rf /root/TMP
 RUN ln -s nvim /usr/local/bin/vi
+RUN ln -sf /usr/local/nvim/bin/nvim /usr/local/bin/nvim
 
 EXPOSE 8080
 CMD ["tail", "-f", "/dev/null"]
