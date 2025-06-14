@@ -12,7 +12,7 @@ services:
     stdin_open: true
     tty: true
 
-  fjalla_pg:
+  pg:
     image: postgres:latest
     container_name: pg
     environment:
